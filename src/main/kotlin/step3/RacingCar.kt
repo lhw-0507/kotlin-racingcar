@@ -1,6 +1,7 @@
 package step3
 
 import step3.IOView.InputView
+import step3.IOView.ResultView
 import step3.domain.Car
 
 object RacingCar {
@@ -11,8 +12,8 @@ object RacingCar {
 
         println("실행 결과")
         for (i in 1..tryCount) {
-            carList.progress()
-            carList.printProgress()
+            carList.progress((Math.random() * 10000).toLong())
+            ResultView.printProgress(carList)
         }
     }
 

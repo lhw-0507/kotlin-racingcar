@@ -1,21 +1,16 @@
 package step3
 
-import step3.IOView.ResultView
 import step3.domain.Car
+import kotlin.random.Random
 
 class CarLists(
-    private val carList: List<Car>
+    val carList: List<Car>
 ) {
-    fun progress() {
+    fun progress(seed: Long) {
+        val random = Random(seed)
         for (car in carList) {
-            val random = (Math.random() * 10).toInt()
-            car.move(random)
+            val randomNumber = random.nextInt(10)
+            car.move(randomNumber)
         }
-    }
-    fun printProgress() {
-        for (car in carList) {
-            ResultView.printCarProgress(car)
-        }
-        println()
     }
 }
